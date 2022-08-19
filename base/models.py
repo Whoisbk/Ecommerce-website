@@ -14,12 +14,19 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     price = models.FloatField()
-    shoe_type = models.CharField(max_length=200)
-    size = models.CharField(max_length=200)
-    color = models.CharField(max_length=200)
+    image = models.ImageField(blank= True,null = True)
     
     def __str__(self):
         return self.name
+
+    @property
+    def imageUrl(self):  # if theres no image uploade then you wont get an error
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+
  
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
@@ -30,6 +37,19 @@ class Order(models.Model):
     def __str__(self):
         return str(self.customer)
 
+    @property
+    def get_cart_total(self):#calculate the cart total
+        orderitems = self.orderitem_set.all()
+        total = sum([items.get_total for item in orderitems])
+        return total
+
+    @property
+    def get_cart_items(self):#count number of items in the cart
+        orderitems = self.orderitem_set.all()
+        total = sum([items.quantity for item in orderitems])
+        return total
+
+
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
@@ -38,6 +58,12 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return self.product.name
+
+    @property
+    def get_total(self):#total for each item
+        total = self.product.price * self.quantity
+        return total
+
     
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
