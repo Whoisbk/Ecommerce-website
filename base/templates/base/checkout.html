@@ -12,10 +12,15 @@
             .Ecom
         </h2>
         <ul>
-            <li><a href="#">Store</a></li>
+            <li><a href="{% url 'store' %}">Store</a></li>
             <li><a href="#">More</a></li>
         </ul>
-        <i class='bx bx-cart'><a href="#"></a></i>
+        <button class="btn p-0 position-relative">
+            <a href="{% url 'cart' %}"><i class='bx bx-cart'></i></a>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{cart_items}}
+            </span>
+        </button>
     </nav>
 
 <div class="container">
