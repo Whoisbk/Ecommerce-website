@@ -5,6 +5,10 @@
 {% load static %}
 {% block styles %}
 <!---<link rel="stylesheet" href="{% static '/css/registerStudent.css' %}">--->
-{% endblock %}
+{% endblock %}                      
+item
+<h2>{{item.name}}</h2>
+<h2>{{item.price}}</h2>
+<img src="{{ item.imageUrl }}" alt="">
 
 {% endblock %}

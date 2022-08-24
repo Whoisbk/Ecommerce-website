@@ -1,7 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sora&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Sora', sans-serif;
 }
 :root{
     --primary-color:#191919;
@@ -118,6 +121,7 @@ nav i:hover{
 }
 .row{
    padding: 6rem;
+   
 
 }
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{

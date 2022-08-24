@@ -1,9 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sora&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Sora', sans-serif;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 :root{
     --primary-color:#191919;
     --secondary-color:red;
@@ -14,20 +20,15 @@
 
 .hero{
     height: 100vh;
+    
     width: 100%;
     position: relative;
-    background-image: url("17019124.jpg");
+    background-image: url("2483946.jpg");
     background-size: cover;
     background-position: center;
 }
 
-.logo{
-    cursor: pointer;
-    letter-spacing: 1px;
-    padding-left: 20px;
-    color: white;
-    justify-content: start;
-}
+
 
 nav{
     margin: auto;
@@ -38,6 +39,12 @@ nav{
     justify-content: space-between;
 }
 
+nav ul li h2{
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    
+}
 nav ul li{
     display: inline-block;
     list-style: none;
@@ -108,7 +115,7 @@ nav i:hover{
 .item-section{
     width: 100%;
     padding:80px 0;
-    background-color: var(--text-color);
+    
     color: var(--text-color);
     color: var(--primary-color);
 }
@@ -133,13 +140,15 @@ nav i:hover{
     margin-top: 2rem;
 }
 .box{
-    border: var(--primary-color) solid 1px;
-    padding: 0.5rem;
+    
+    background-color: white;
 }
 .box .box-img{
-    
+    padding-bottom: 0.5rem;
     width: 100%;
+    border-bottom: black 1px solid;
     height: 270px;
+    
 }
 
 .box .box-img img{

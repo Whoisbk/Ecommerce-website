@@ -1,0 +1,123 @@
+{% extends 'base/main.html' %}
+{% block title %}<title>item_profile</title>{% endblock %}
+
+{% block content %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/cart.css' %}">
+{% endblock %}
+
+
+<div class="hero">
+    <nav>
+        <h2 class="logo">
+            .Ecom
+        </h2>
+        <ul>
+            <li><a href="{% url 'store' %}">Store</a></li>
+            <li><a href="#box">More</a></li>
+        </ul>
+        <button class="btn p-0 position-relative">
+            <a href="{% url 'cart' %}"><i class='bx bx-cart'></i></a>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{cart_items}}
+            </span>
+        </button>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="box-element box shadow p-3 mb-5 bg-body rounded" id="box">
+                <a class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+                <hr>
+                <h3>Order Summary</h3>
+                <hr>
+                {% for item in items %}
+                <div class="cart-row">
+                    <div style="flex:2"><img class="row-image" src="{{item.product.imageUrl}}"></div>
+                    <div style="flex:2">
+                        <p>{{item.product.name}}</p>
+                    </div>
+                    <div style="flex:1">
+                        <p>R{{item.product.price|floatformat:2}}</p>
+                    </div>
+                    <div style="flex:1">
+                        <p>x{{item.quantity}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <h5>Items: {{order.get_cart_items}}</h5>
+                <h5>Total: R{{order.get_cart_total|floatformat:2}}</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 m-5">
+            <!-- Replace "test" with your own sandbox Business account app client ID -->
+            
+            <script src="https://www.paypal.com/sdk/js?client-id=AUSaHG_-J9ytG5dWYc2fJTij2STJ1UdK5G37UpH-lCHNf222tp63wchx2LfFVmF-YZ6O7KufnQnCPNVh&currency=USD"></script>
+            
+            <!-- Set up a container element for the button -->
+            
+            <div id="paypal-button-container" class="box shadow p-3 mb-5 bg-body rounded"></div>
+            
+            <script>
+                const total = "{{order.get_cart_total|floatformat:2}}"
+                paypal.Buttons({
+
+                    // Sets up the transaction when a payment button is clicked
+
+                    createOrder: (data, actions) => {
+
+                        return actions.order.create({
+
+                            purchase_units: [{
+
+                                amount: {
+
+                                    value: total // Can also reference a variable or function
+
+                                }
+
+                            }]
+
+                        });
+
+                    },
+
+                    // Finalize the transaction after payer approval
+
+                    onApprove: (data, actions) => {
+
+                        return actions.order.capture().then(function (orderData) {
+
+                            // Successful capture! For dev/demo purposes:
+
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                            const transaction = orderData.purchase_units[0].payments.captures[0];
+
+                            //alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+
+                            
+                            // When ready to go live, remove the alert and show a success message within this page. For example:
+
+                             const element = document.getElementById('paypal-button-container');
+                             const row = document.getElementsByClassName('row')
+                             row.innerHTML = '<h3>Thank you for your payment!</h3>';
+                             element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                             
+
+
+                            // Or go to another URL:  actions.redirect('thank_you.html');
+
+                        });
+
+                    }
+
+                }).render('#paypal-button-container');
+
+            </script>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

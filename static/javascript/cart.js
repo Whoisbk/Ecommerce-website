@@ -7,7 +7,7 @@ for (let i = 0; i < updateBtns.length; i++) {
         console.log('p_ID:', product_Id, 'Action:', action)
 
         console.log('User:', user)
-        console.log(csrftoken)
+        
         if (user === 'AnonymousUser') {
             console.log('You are not authenticated')
         } else {
@@ -37,3 +37,19 @@ function updateUserOrder(product_Id, action) {
         })
     
 }
+
+
+
+
+
+
+
+const sr = ScrollReveal({
+    distance: '40px',
+    duration: 2600,
+    reset: true
+})
+
+
+sr.reveal('.hero', { delay: 200, origin: 'right' })
+sr.reveal('.item-section', { delay: 300, origin: 'bottom' })
