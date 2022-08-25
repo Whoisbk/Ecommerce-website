@@ -14,21 +14,14 @@
         <nav>
 
             <ul>
-                <li><h2>
+                <li><a href="{% url 'store' %}"><h2>
                     .Ecom
-                </h2></li>
+                </h2></a></li>
                 <li><a href="{% url 'store' %}">Store</a></li>
+                <li><a href="{% url 'signout' %}">Logout</a></li>
                 <li><a href="#box">More</a></li>
                 
             </ul>
-            
-                <form class="d-flex" role="search">
-                    {{store_filter.form}}
-
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-
-                
 
             <button class="btn p-0 position-relative">
                 <a href="{% url 'cart' %}"><i class='bx bx-cart'></i></a>
@@ -48,8 +41,14 @@
 
 <!---box items-->
     <section>
+        <form class="search d-flex m-5" role="search">
+            {{store_filter.form}}
+        
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
         <div class="item-section" id="items">
             <h2 class="heading">Latest Deals this week</h2>
+            
             <!--Item container-->
             <div class="items-container">
                 <!---box-->

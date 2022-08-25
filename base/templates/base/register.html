@@ -1,14 +1,55 @@
 {% extends 'base/main.html' %}
-{% block title %}<title>Store</title>{% endblock %}
+{% block title %}<title>Register</title>{% endblock %}
 
 {% block content %}
-
 {% load static %}
+
 {% block styles %}
 <!---<link rel="stylesheet" href="{% static '/css/registerStudent.css' %}">--->
 {% endblock %}
 
+<div class="position-absolute top-50 start-50 translate-middle box shadow m-3 p-3 bg-body rounded">
+    <form class="row g-3" method="POST">
+        {% csrf_token %}
+        Register
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+        <div class="md-3">
+            <label for="staticEmail2" class="form-label">Email:</label>
+            <input type="text" name="email" class="form-control" id="staticEmail2" placeholder="email@example.com">
+        </div>
 
+        <div class="md-3">
+            <label for="staticEmail2" class="form-label">First Name:</label>
+            <input type="text" name="fname" class="form-control" id="staticEmail2" placeholder="First Name">
+        </div>
 
+        <div class="md-3">
+            <label for="staticEmail2" class="form-label">Last Name:</label>
+            <input type="text" name="lname"  class="form-control" id="staticEmail2" placeholder="Last Name">
+        </div>
 
+        <div class="md-3">
+            <label for="staticEmail2" class="form-label">UserName:</label>
+            <input type="text" name="username"  class="form-control" id="staticEmail2" placeholder="UserName">
+        </div>
+
+        <div class="md-3">
+            <label for="inputPassword2" class="form-label">Password:</label>
+            <input type="password" name="pass-1"  class="form-control" id="inputPassword2" placeholder="Password">
+        </div>
+
+        <div class="md-3">
+            <label for="inputPassword2" class="form-label">Re-Type Password:</label>
+            <input type="password" name="pass-2"  class="form-control" id="inputPassword2" placeholder="Password">
+        </div>
+
+        <div class="md-3">
+            <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

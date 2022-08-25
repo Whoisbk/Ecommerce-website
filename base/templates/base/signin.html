@@ -8,13 +8,32 @@
 <!---<link rel="stylesheet" href="{% static '/css/registerStudent.css' %}">--->
 {% endblock %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="text" name="email" >
-    <br>
-    <input type="text" name="password">
-    <br>
-    <button type="submit">Login</button>
-</form>
+<div class="position-absolute top-50 start-50 translate-middle box shadow p-3 bg-body rounded">
+    
+    <form class="row g-3" method="POST">
+        {% csrf_token %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                    {{message}}
+            </div>
+        {% endfor %}
+        
+       <h2>Login</h2>
+        <div class="md-3">
+            <label for="staticEmail2" class="form-label">Email:</label>
+            <input type="text"  name="email" class="form-control" id="staticEmail2" placeholder="email@example.com">
+        </div>
 
+        <div class="md-3">
+            <label for="inputPassword2" class="form-label">Password:</label>
+            <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password">
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="Submit">Button</button>
+            <a href="{% url 'register' %}" class="btn btn-outline-secondary mb-3">Confirm identity</a>
+        </div>
+        
+    </form>
+</div>
 {% endblock %}

@@ -13,8 +13,8 @@ class StoreFilter(django_filters.FilterSet):
    
     name = django_filters.CharFilter(
         field_name='name', lookup_expr='icontains', label='', widget=TextInput(
-            attrs={'size': '20',
-                   'class': 'form-control ',
+            attrs={'size': '10',
+                   'class': 'form-control',
                    'placeholder': 'Search'}))
     
     class Meta:
