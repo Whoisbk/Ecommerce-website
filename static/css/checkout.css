@@ -111,3 +111,12 @@ nav i:hover{
     transform: translateY(-10%);
 
 }
+
+
+@media (max-width: 720px){
+  .container{
+      
+      width: 80%;
+  }
+
+}

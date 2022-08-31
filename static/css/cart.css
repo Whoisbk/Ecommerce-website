@@ -122,8 +122,9 @@ nav i:hover{
 .row{
    padding: 6rem;
    
-
 }
+
+
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
 	margin-top: 10px;
 }
@@ -174,4 +175,28 @@ nav i:hover{
 
 .hidden{
 	display: none!important;
+}
+
+
+
+@media (max-width: 720px){
+    .row{
+        width: 100%;
+        padding:0.6rem;
+    }
+    
+    .row h5{
+        font-size: 0.5rem;
+    }
+    .row a{
+        font-size: 0.5rem;
+    }
+
+    .cart-row{
+        font-size: 0.5rem;
+    }
+
+    .cart-row img{
+        width: 2.5rem;
+    }
 }

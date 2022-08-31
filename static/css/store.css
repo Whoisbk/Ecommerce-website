@@ -171,7 +171,7 @@ nav i:hover{
     .hero{
         
         background-position: left;
-}
+    }
     nav ul li a{
         text-decoration: none;
         color: red;
@@ -188,22 +188,8 @@ nav i:hover{
 
     .info{
     width: 60%;
-}
-
-    .item-container{
-        padding: 2rem;
     }
 
-    .box{
-        width:70%;
-    }
-
-    .heading{
-        width: 60%;
-        margin: 0;
-        
-        
-    }
 
 }
 
