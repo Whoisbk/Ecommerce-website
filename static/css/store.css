@@ -166,5 +166,48 @@ nav i:hover{
 
 
 
+@media (max-width: 720px){
+    
+    .hero{
+        
+        background-position: left;
+}
+    nav ul li a{
+        text-decoration: none;
+        color: red;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    nav{
+        font-size: 0.7rem;
+    }
+    .item-section{
+        padding: 3rem;
+        
+    }
+
+    .info{
+    width: 60%;
+}
+
+    .item-container{
+        padding: 2rem;
+    }
+
+    .box{
+        width:70%;
+    }
+
+    .heading{
+        width: 60%;
+        margin: 0;
+        
+        
+    }
+
+}
+
+
+
 
 

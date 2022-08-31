@@ -29,10 +29,11 @@
             <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password">
         </div>
 
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="Submit">Button</button>
-            <a href="{% url 'register' %}" class="btn btn-outline-secondary mb-3">Confirm identity</a>
+        <div class="d-grid gap-2 col-8 mx-auto">
+            <button class="btn btn-primary" type="Submit">Login</button>
+            <a href="{% url 'register' %}" class="btn btn-outline-secondary mb-3">Register</a>
         </div>
+        <a href="{% url 'reset_password' %}">Forgot password</a>
         
     </form>
 </div>

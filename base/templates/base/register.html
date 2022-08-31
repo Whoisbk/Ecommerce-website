@@ -8,7 +8,7 @@
 <!---<link rel="stylesheet" href="{% static '/css/registerStudent.css' %}">--->
 {% endblock %}
 
-<div class="position-absolute top-50 start-50 translate-middle box shadow m-3 p-3 bg-body rounded">
+<div class="position-absolute top-50 start-50 translate-middle box shadow m-5 p-3 bg-body rounded">
     <form class="row g-3" method="POST">
         {% csrf_token %}
         Register
@@ -47,8 +47,10 @@
             <input type="password" name="pass-2"  class="form-control" id="inputPassword2" placeholder="Password">
         </div>
 
-        <div class="md-3">
-            <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+        <div class="d-grid gap-2 col-8 mx-auto">
+            <button class="btn btn-primary" type="Submit">Register</button>
+            <a href="{% url 'signin' %}" class="btn btn-outline-secondary mb-3">Already Registered</a>
+            
         </div>
     </form>
 </div>

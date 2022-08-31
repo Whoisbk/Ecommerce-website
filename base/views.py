@@ -8,7 +8,9 @@ from .models import Customer, Product, Order, OrderItem, ShippingAddress,User
 from django.contrib.auth.decorators import login_required
 import time
 from .filters import *
-
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
 
 @login_required(login_url='signin')
 def store(request):
@@ -193,7 +195,16 @@ def register(request):
 
             customer = Customer(user=u, name=fname, email=email)
             customer.save()
-
+            messages.success(request, "Registration Successful")
+            template = render_to_string('base/registration_email.html', {'name': u.first_name})
+            
+            send_mail(
+                'Ecom Registration successful',
+                template,
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
             return redirect('signout')
 
     return render(request, 'base/register.html')
