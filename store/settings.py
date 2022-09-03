@@ -81,9 +81,13 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD':'BokamosoBk@13',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
     }
 }
+import dj_database_url
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 
 # Password validation
