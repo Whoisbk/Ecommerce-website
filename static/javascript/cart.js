@@ -1,4 +1,16 @@
 const updateBtns = document.getElementsByClassName('update-cart')
+const menu = document.getElementById('menu-icon')
+let navlist = document.querySelector('.navlist')
+
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navlist.classList.toggle('active')
+}
+
+window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navlist.classList.remove('active');
+}
 //loop through each button and give them a function
 for (let i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener('click', function(){
@@ -43,13 +55,3 @@ function updateUserOrder(product_Id, action) {
 
 
 
-
-const sr = ScrollReveal({
-    distance: '40px',
-    duration: 2600,
-    reset: true
-})
-
-
-sr.reveal('.hero', { delay: 200, origin: 'right' })
-sr.reveal('.item-section', { delay: 300, origin: 'bottom' })

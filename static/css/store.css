@@ -28,7 +28,17 @@ html{
     background-position: center;
 }
 
+#menu-icon{
+    font-size: 35px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
 
+.navlist{
+    display: flex;
+}
 
 nav{
     margin: auto;
@@ -172,25 +182,56 @@ nav i:hover{
         
         background-position: left;
     }
-    nav ul li a{
-        text-decoration: none;
-        color: red;
-        font-weight: bold;
-        text-transform: capitalize;
-    }
+  
     nav{
         font-size: 0.7rem;
     }
+
+    .navlist{
+        position: absolute;
+        top: -600px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--secondary-color);
+        text-align: left;
+        transition: all .35s ease;
+    }
+
+    .navlist a{
+        display: block;
+        padding: 0.8rem;
+        margin: 0.5rem;
+        border-left: 2px solid var(--text-color);
+        color: black;
+        
+    }
+
+    .navlist a:hover{
+        background: var(--text-color);
+        color: var(--secondary-bg-color);
+        border: none;
+    }
+
+    .navlist a::after{
+        display: none;
+    }
+
+    .navlist.active{
+        top: 15%;
+    }
     .item-section{
         padding: 3rem;
-        
     }
 
     .info{
     width: 60%;
     }
 
-
+    #menu-icon{
+        display: block;
+    }
 }
 
 

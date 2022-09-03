@@ -4,11 +4,49 @@
 {% block content %}
 {% load static %}
 {% block styles %}
-<!---<link rel="stylesheet" href="{% static '/css/registerStudent.css' %}">--->
-{% endblock %}                      
-item
-<h2>{{item.name}}</h2>
-<h2>{{item.price}}</h2>
-<img src="{{ item.imageUrl }}" alt="">
+<link rel="stylesheet" href="{% static '/css/item_profile.css' %}">
+{% endblock %}   
+<!--Navbar and showcase-->
+ 
+<section>
+    <div class="hero">
+        <nav>
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <ul class="navlist">
+    
+                <li><a href="{% url 'store' %}">Store</a></li>
+                <li><a href="{% url 'signout' %}">Logout</a></li>
+                <li><a href="#box">More</a></li>
+
+            </ul>
+
+            <button class="btn p-0 position-relative">
+                <a href="{% url 'cart' %}"><i class='bx bx-cart'></i></a>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{cart_items}}
+                </span>
+            </button>
+
+        </nav>
+
+    </div>
+</section>
+
+<div class="container box shadow p-3 mb-5 bg-body rounded">
+    
+    
+    <img src="{{ item.imageUrl }}" alt="">
+    
+    <div class="info">
+        <h2>{{item.name}}</h2>
+        <h2>{{item.price}}</h2>
+       
+        <button data-product="{{item.id}}" data-action="add" class="btn btn-outline-danger add-btn update-cart "><i
+                class='bx bx-cart'></i></button>
+    </div>
+
+</div>
 
 {% endblock %}

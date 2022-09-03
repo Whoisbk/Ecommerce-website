@@ -13,14 +13,18 @@
     <div class="hero">
         <nav>
 
-            <ul>
-                <li><a href="{% url 'store' %}"><h2>
-                    .Ecom
-                </h2></a></li>
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <ul class="navlist">
                 <li><a href="{% url 'store' %}">Store</a></li>
-                <li><a href="{% url 'signout' %}">Logout</a></li>
-                <li><a href="#box">More</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'signout' %}">Sign Out</a></li>
+                {% else %}
+                    <li><a href="{% url 'signout' %}">Sign In</a></li>
+                {% endif %}
+
                 
+                <li><a href="#box">More</a></li> 
             </ul>
 
             <button class="btn p-0 position-relative">
@@ -65,7 +69,7 @@
                                     class='bx bx-cart'></i></button>
                             <a href="{% url 'item_profile' item.name %}" class="btn btn-outline-primary">View</a>
                         </div>
-                        </div>
+                    </div>
                 {% endfor %}
                 
             </div>

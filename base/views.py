@@ -109,10 +109,13 @@ def payment(request):
 
 def itemProfile(request,pk):
     context = {}
-
+    customer = request.user.customer
     item = Product.objects.get(name=pk)
-    
-    context = {"item":item}
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    cart_items = order.get_cart_items
+
+    context = {"item":item,"cart_items":cart_items}
     return render(request, 'base/item_profile.html',context)
 
 
