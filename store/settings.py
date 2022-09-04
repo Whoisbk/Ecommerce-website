@@ -81,7 +81,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD':'BokamosoBk@13',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '54321',
     }
 }
 import dj_database_url
