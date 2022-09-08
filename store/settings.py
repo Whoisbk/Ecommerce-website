@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x4y6q%7p671q7s&ah#6w99y&!o@4)dxrya8qvj*4=!6ib3u@zx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ecom-store-live.herokuapp.com', '127.0.0.1']
 
