@@ -200,14 +200,15 @@ def register(request):
             customer.save()
             messages.success(request, "Registration Successful")
             template = render_to_string('base/registration_email.html', {'name': u.first_name})
-            
+            '''
             send_mail(
                 'Ecom Registration successful',
                 template,
                 settings.EMAIL_HOST_USER,
                 [email],
                 fail_silently=False,
-            )
+            )'''
+            
             return redirect('signout')
 
     return render(request, 'base/register.html')
@@ -215,5 +216,5 @@ def register(request):
 
 def signout(request):
     logout(request)
-    messages.success(request, "logged out")
+    
     return redirect('signin')
