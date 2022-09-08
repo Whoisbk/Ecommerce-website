@@ -1,7 +1,14 @@
+
+.reg{
+    width: 40%;
+    left: 50%;
+ } 
+
 @media (max-width: 720px){
  .reg{
-     width: 70%;
-    
+    width: 70%;
+    left: 43%;
  } 
 
 }
+
