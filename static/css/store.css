@@ -232,6 +232,12 @@ nav i:hover{
     #menu-icon{
         display: block;
     }
+
+    .info{
+        margin-top: 30%;
+        margin-left: 10%;
+        width: 60%;
+}
 }
 
 
