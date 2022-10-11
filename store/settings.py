@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path, os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -152,6 +153,22 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mytutorfinderltdco@gmail.com'
 EMAIL_HOST_PASSWORD = 'fzkabpxyvdosahjo'
 
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#LINODE Settings
+LINODE_BUCKET = config('LINODE_BUCKET')
+LINODE_BUCKET_REGION = 'eu-central-1'
+LINODE_BUCKET_ACCESS_KEY = config('LINODE_BUCKET_ACCESS_KEY')
+LINODE_BUCKET_SECRET_KEY = config('LINODE_BUCKET_SECRET_KEY')
+
+
+#AWS Settings
+AWS_DEFAULT_ACL = 'authenticated-read'
+AWS_S3_ENDPOINT_URL = f'https://{LINODE_BUCKET_REGION}.linodeobjects.com'
+AWS_ACCESS_KEY_ID = LINODE_BUCKET_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = LINODE_BUCKET_SECRET_KEY
+AWS_S3_REGION_NAME = LINODE_BUCKET_REGION
+AWS_S3_USE_SSL = True
+AWS_STORAGE_BUCKET_NAME = LINODE_BUCKET
