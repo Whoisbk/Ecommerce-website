@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path, os
-from decouple import config
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -157,10 +158,10 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 #LINODE Settings
-LINODE_BUCKET = config('LINODE_BUCKET')
+LINODE_BUCKET = 'ecom-files'
 LINODE_BUCKET_REGION = 'eu-central-1'
-LINODE_BUCKET_ACCESS_KEY = config('LINODE_BUCKET_ACCESS_KEY')
-LINODE_BUCKET_SECRET_KEY = config('LINODE_BUCKET_SECRET_KEY')
+LINODE_BUCKET_ACCESS_KEY = 'ULIJMOWIBZ19JKCFZ7Z6'
+LINODE_BUCKET_SECRET_KEY = 'HyDeBr5FFFE092dngALD80nsrJfqM43PNKrYeu3W'
 
 
 #AWS Settings
