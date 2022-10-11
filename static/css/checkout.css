@@ -11,7 +11,7 @@
 :root{
     --primary-color:#191919;
     --secondary-color:red;
-    --text-color:white;
+    --text-color:black;
 }
 
 .container{
@@ -26,7 +26,7 @@
     height: 140vh;
     width: 100%;
     position: relative;
-    background-image: url("17019124.jpg");
+    background-image: url('https://www.pushengage.com/wp-content/uploads/2021/04/Reduce-Cart-Abandonment-scaled.jpg');
     background-size: cover;
     background-position: center;
 }
